@@ -1,0 +1,10 @@
+<md-bottom-sheet ng-controller="UserMenu as vm" class="md-grid">
+    <md-list>
+        <md-list-item ng-repeat="item in vm.items">
+            <md-button class="md-grid-item-content tile-icon" ng-click="vm.itemClicked($index)">
+                <md-icon md-font-icon="{{item.icon}}" class="fa"></md-icon>
+                <div class="md-grid-text"> {{ item.name }} </div>
+            </md-button>
+        </md-list-item>
+    </md-list>
+</md-bottom-sheet>

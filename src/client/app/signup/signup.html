@@ -1,0 +1,34 @@
+<div data-ng-controller="SignUp as vm" layout="row" layout-align="center center" class="welcome-container">
+    <md-content class="loginCard" layout="column" layout-align="center center">
+        <md-input-container>
+            <label>First Name</label>
+            <input ng-model="vm.user.firstName" ng-keypress="vm.keyPress($event)"/>
+        </md-input-container>
+        <md-input-container>
+            <label>Last Name</label>
+            <input ng-model="vm.user.lastName" ng-keypress="vm.keyPress($event)"/>
+        </md-input-container>
+        <md-input-container>
+            <label>Email</label>
+            <input type="email" ng-model="vm.user.username" ng-keypress="vm.keyPress($event)"/>
+        </md-input-container>
+        <md-input-container>
+            <label>Password</label>
+            <input type="password" ng-model="vm.user.password" ng-keypress="vm.keyPress($event)"/>
+        </md-input-container>
+        <md-input-container>
+            <label>Retype Password</label>
+            <input type="password" ng-model="vm.user.password2" ng-keypress="vm.keyPress($event)"/>
+        </md-input-container>
+        <section layout="row" layout-align="center center">
+            <md-button class="md-raised md-primary sm-margin" ng-click="vm.createUser()">
+                <i class="fa fa-pencil"></i>
+                Sign Up
+            </md-button>
+            <md-button class="md-raised md-accent sm-margin" ng-click="vm.cancel()">
+                <i class="fa fa-remove"></i>
+                Cancel
+            </md-button>
+        </section>
+    </md-content>
+</div>

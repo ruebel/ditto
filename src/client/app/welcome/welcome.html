@@ -1,0 +1,22 @@
+<div data-ng-controller="Welcome as vm" layout="row" layout-align="center center" class="welcome-container">
+    <md-content class="loginCard" layout="column" layout-align="center center">
+        <md-input-container>
+            <label>E-mail</label>
+            <input ng-model="vm.user.username" />
+        </md-input-container>
+        <md-input-container>
+            <label>Password</label>
+            <input type="password" ng-model="vm.user.password" ng-keypress="vm.keyPress($event)"/>
+        </md-input-container>
+        <section layout="row" layout-align="center center">
+            <md-button class="md-raised md-primary sm-margin" ng-click="vm.login()">
+                <i class="fa fa-sign-in sm-pad"></i>
+                Login
+            </md-button>
+            <md-button class="md-raised md-primary sm-margin" ng-click="vm.signup()">
+                <i class="fa fa-pencil sm-pad"></i>
+                Signup
+            </md-button>
+        </section>
+    </md-content>
+</div>

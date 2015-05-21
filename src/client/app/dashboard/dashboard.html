@@ -1,0 +1,27 @@
+<div data-ng-controller="Dashboard as vm">
+    <md-button class="md-raised md-primary" ng-click="vm.sendMessage()">Send Test Message</md-button>
+    <div layout="row" class="md-padding" layout-margin>
+        <ru-timer timer="vm.timer" start-timer="vm.startTimer" stop-timer="vm.stopTimer"></ru-timer>
+        <md-input-container class="small-input">
+            <label>Hours</label>
+            <input required type="number" step="any" ng-model="vm.time.hours" min="0" max="99">
+        </md-input-container>
+        <md-input-container class="small-input">
+            <label>Minutes</label>
+            <input required type="number" step="any" ng-model="vm.time.minutes" min="0" max="59">
+        </md-input-container>
+        <md-input-container class="small-input">
+            <label>Seconds</label>
+            <input required type="number" step="any" ng-model="vm.time.seconds" min="0" max="59">
+        </md-input-container>
+        <md-button class="md-raised md-primary" ng-click="vm.sendTimerStart()"><i class="fa fa-clock-o"></i> Start</md-button>
+        <md-button class="md-raised md-primary" ng-click="vm.sendTimerStop()"><i class="fa fa-stop"></i> Stop</md-button>
+    </div>
+    <md-card ng-if="vm.timer.run" class="md-accent timer-card">
+        <md-card-content>
+
+            <i class="fa fa-clock-o"></i>
+            <span>{{vm.timer.timeLeft}}</span>
+        </md-card-content>
+    </md-card>
+</div>

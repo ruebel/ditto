@@ -1,0 +1,19 @@
+<md-dialog>
+    <md-content>
+        <md-subheader class="md-sticky-no-effect">Please Login</md-subheader>
+        <md-input-container>
+            <label>Username</label>
+            <input ng-model="vm.user.username" />
+        </md-input-container>
+        <md-input-container>
+            <label>Password</label>
+            <input type="password" ng-model="vm.user.password" />
+        </md-input-container>
+    </md-content>
+    <div class="md-actions" layout="row">
+        <md-button class="md-raised md-primary" ng-click="vm.login">
+            <i class="fa fa-lock"></i>
+            Login
+        </md-button>
+    </div>
+</md-dialog>

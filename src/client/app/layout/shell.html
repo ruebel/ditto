@@ -1,0 +1,17 @@
+<div ng-controller="Shell as vm" flex>
+    <md-toolbar class="toolbar-top">
+        <div class="md-toolbar-tools">
+            <span>
+                <md-button class="site-title">
+                    <span><i class="fa fa-adjust"></i> ditto</span>
+                </md-button>
+            </span>
+            <span flex></span>
+            <md-button ng-click="vm.userNameClicked($event)" ng-if="vm.user != null">
+                <span><i class="fa" ng-class="vm.mode === 'teacher' ? 'fa-user' : 'fa-users'"></i></span>
+                <span>{{vm.user.firstName + ' ' + vm.user.lastName}}</span>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <div role="main" class="fullBody" layout="column" data-ui-view></div>
+</div>

@@ -1,0 +1,14 @@
+/* Main Primary color */
+/* Main Secondary color (1) */
+.present-main {
+  background-color: #00bcd4;
+}
+.p-timer-card {
+  max-width: 600px;
+  min-width: 100px;
+}
+.p-timer {
+  color: #ffffff;
+  font-weight: 200;
+  font-size: 13em;
+}

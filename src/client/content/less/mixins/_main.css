@@ -1,0 +1,36 @@
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+a :link {
+  color: #ffffff;
+}
+a :visited {
+  color: #ffffff;
+}
+a :hover {
+  color: #ffffff;
+}
+a :active {
+  color: #ffffff;
+}
+.small-input {
+  max-width: 100px;
+  padding-bottom: 2px;
+}
+.sm-pad {
+  padding: 3px;
+}
+.sm-margin {
+  margin: 5px;
+}
+md-icon.fa {
+  display: block;
+  padding-left: 0px;
+}
+.tile-icon {
+  font-size: 2em !important;
+}
+.timer-card {
+  max-width: 180px;
+}
