@@ -20,8 +20,11 @@
         };
 
         var events = {
-            showLoadingOverlay: 'showLoadingOverlay',
+            hideLeftNav: 'hideLeftNav',
             hideLoadingOverlay: 'hideLoadingOverlay',
+            showLeftNav: 'showLeftNav',
+            showLoadingOverlay: 'showLoadingOverlay',
+            toggleLeftNav: 'toggleLeftNav',
             userLoggedIn: 'userLoggedIn',
             userLoggedOut: 'userLoggedOut',
             userModeSet: 'userModeSet'
@@ -38,8 +41,8 @@
         };
 
         var remoteServiceNames = {
-            //baseAddress: 'http://localhost:8080/',                  // Development
-            baseAddress: 'http://ditto-ubel.rhcloud.com:8000/',   // Production
+            baseAddress: 'http://localhost:8080/',                  // Development
+            //baseAddress: 'http://ditto-ubel.rhcloud.com:8000/',   // Production
             userCreate: 'users/create',
             userLogin: 'users/login',
             sessionOpen: 'sessions/open'

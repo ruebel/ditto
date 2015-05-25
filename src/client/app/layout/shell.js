@@ -14,6 +14,7 @@
 
         vm.mode = '';
         vm.modeIcon = getModeIcon;
+        vm.showMenu = showMenu;
         vm.title = constants.appTitle;
         vm.user = undefined;
         vm.userNameClicked = userNameClicked;
@@ -79,6 +80,10 @@
                         break;
                 }
             });
+        }
+
+        function showMenu($event){
+            common.$broadcast(constants.events.showLeftNav, $event);
         }
     }
 })();
