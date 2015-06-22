@@ -1,4 +1,4 @@
-(function(){
+(function () {
     'use strict';
 
     angular
@@ -7,7 +7,7 @@
 
     Main.$inject = ['$mdComponentRegistry', '$rootScope', 'common'];
 
-    function Main($mdComponentRegistry, $rootScope, common){
+    function Main($mdComponentRegistry, $rootScope, common) {
         /*jshint validthis: true */
         var vm = this;
         var constants = common.constants;
@@ -16,33 +16,33 @@
         vm.nav = {
             id: 'sitenav'
         };
-        vm.title = constants.appTitle
+        vm.title = constants.appTitle;
 
         activate();
 
         ////////////////////
 
-        function activate(){
+        function activate() {
             // Catch nav bar events
             $rootScope.$on(constants.events.showLeftNav, showNav);
             $rootScope.$on(constants.events.hideLeftNav, hideNav);
             $rootScope.$on(constants.events.toggleLeftNav, toggleNav);
         }
 
-        function hideNav(){
-            $mdComponentRegistry.when(vm.nav.id).then(function(it){
+        function hideNav() {
+            $mdComponentRegistry.when(vm.nav.id).then(function(it) {
                 it.close();
             });
         }
 
-        function showNav(){
-            $mdComponentRegistry.when(vm.nav.id).then(function(it){
+        function showNav() {
+            $mdComponentRegistry.when(vm.nav.id).then(function(it) {
                 it.open();
             });
         }
 
-        function toggleNav(){
-            $mdComponentRegistry.when(vm.nav.id).then(function(it){
+        function toggleNav() {
+            $mdComponentRegistry.when(vm.nav.id).then(function(it) {
                 it.toggle();
             });
         }

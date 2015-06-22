@@ -24,18 +24,15 @@ var users           = require('./routes/user')(dataconfig, UserProfileModel);
 // VARIABLES
 console.log('dirname: ' + __dirname);
 var environment = process.env.NODE_ENV;
-var oneDay = 86400000;
-var pkgPath = environment === "dev" ? './../../package.json' : __dirname + '/package.json';
-var pkg = require(pkgPath);
 // Try to get openshift variables and if they aren't there use local hosting variables
-var server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080
-var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
+var serverPort = process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || 8080;
+var serverIp = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
 
 app.use(bodyParser.urlencoded({extended: true}));   // Support URL-encoded bodies
 app.use(bodyParser.json());                         // Support JSON-encoded bodies
 app.use(compress());                                // Compress response data with gzip
 app.use(logger('dev'));                             // logger
-app.use(favicon(__dirname + '/favicon.ico'));// favicon
+app.use(favicon(__dirname + '/favicon.ico'));       // favicon
 app.use(cors());                                    // enable ALL CORS requests
 app.use(errorHandler.init);                         // Error handler
 
@@ -46,18 +43,18 @@ app.use('/users', users);
 // Set up socket server
 require('./sockets/base')(io);
 
-console.log('IP=' + server_ip_address);
-console.log('PORT=' + server_port);
+console.log('IP=' + serverIp);
+console.log('PORT=' + serverPort);
 console.log('NODE_ENV=' + environment);
 
 ///////////////////////////////////////////////////////////////////
 // APP
-switch(environment){
+switch (environment) {
     default:
-        console.log('** STAGE **');
+        console.log('** BUILD **');
+        // serve client code
         app.use('/', express.static(__dirname + '/client/'));
-        // production error handler
-        // no stacktraces leaked to user
+        // production error handler - no stack traces
         app.use(function(err, req, res, next) {
             res.status(err.status || 500);
             res.render('error', {
@@ -70,11 +67,14 @@ switch(environment){
     case 'dev':
         console.log('** DEV **');
         // Serve client code
-        app.use('/', express.static(pkg.paths.client, {maxAge: oneDay}));
+        app.use(express.static('./src/client/'));
         // Serve bower components
-        app.use('/', express.static('G:/Code/Ditto/', {maxAge: oneDay}));
-        // development error handler
-        // will print stacktrace
+        app.use(express.static('./'));
+        // Serve template cache
+        app.use(express.static('./tmp'));
+        // Route for index html
+        app.use('/*', express.static('./src/client/index.html'));
+        // development error handler w/ stack traces
         app.use(function(err, req, res, next) {
             res.status(err.status || 500);
             res.render('error', {
@@ -87,10 +87,10 @@ switch(environment){
 
 ///////////////////////////////////////////////////////////////////
 // SERVER
-server.listen(server_port, server_ip_address, function (err) {
+server.listen(serverPort, serverIp, function (err) {
     console.log('************************');
     console.log('Ditto Server');
-    console.log('Listening on ' + server_ip_address + ', port ' + server_port);
+    console.log('Listening on ' + serverIp + ', port ' + serverPort);
     console.log('\nRemember to first start MongoDb server');
     console.log('env = ' + app.get('env') +
         '\n__dirname = ' + __dirname +

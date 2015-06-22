@@ -19,20 +19,20 @@ module.exports = function (io) {
 
         ///////////////////
 
-        function connect(){
+        function connect() {
             socket.broadcast.emit('user connected');
             console.log('User Connected');
         }
 
-        function disconnect(){
+        function disconnect() {
             console.log('user disconnected');
         }
 
-        function logEvent(eventName, from, msg){
+        function logEvent(eventName, from, msg) {
             console.log(eventName + 'received from', from, 'msg', JSON.stringify(msg));
         }
 
-        function message(from, msg){
+        function message(from, msg) {
             logEvent(events.message, from, msg);
 
             io.sockets.emit(events.message, {
@@ -41,7 +41,7 @@ module.exports = function (io) {
             });
         }
 
-        function timerStart(from, msg){
+        function timerStart(from, msg) {
             logEvent(events.timerStart, from, msg);
 
             io.sockets.emit(events.timerStart, {
@@ -50,7 +50,7 @@ module.exports = function (io) {
             });
         }
 
-        function timerStop(from, msg){
+        function timerStop(from, msg) {
             logEvent(events.timerStop, from, msg);
 
             io.sockets.emit(events.timerStop, {

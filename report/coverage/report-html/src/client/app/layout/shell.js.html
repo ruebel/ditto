@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for ./src/client/app/layout/shell.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../../prettify.css">
+    <link rel="stylesheet" href="../../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">./src/client/app/layout/shell.js</span></h1>
+    <h2>
+        Statements: <span class="metric">23.81% <small>(10 / 42)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">0% <small>(0 / 5)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">7.14% <small>(1 / 14)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">23.81% <small>(10 / 42)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../../index.html">All files</a> &#187; <a href="index.html">./src/client/app/layout/</a> &#187; shell.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90</td><td class="line-coverage"><span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">(function () {
+    'use strict';
+&nbsp;
+    angular
+        .module('app.layout')
+        .controller('Shell', Shell);
+&nbsp;
+    Shell.$inject = ['$mdBottomSheet', '$rootScope', 'common', 'security'];
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function Shell($mdBottomSheet, $rootScope, common, security) {</span>
+        /*jshint validthis: true */
+<span class="cstat-no" title="statement not covered" >        var vm = this;</span>
+<span class="cstat-no" title="statement not covered" >        var constants = common.constants;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        vm.mode = '';</span>
+<span class="cstat-no" title="statement not covered" >        vm.modeIcon = getModeIcon;</span>
+<span class="cstat-no" title="statement not covered" >        vm.showMenu = showMenu;</span>
+<span class="cstat-no" title="statement not covered" >        vm.title = constants.appTitle;</span>
+<span class="cstat-no" title="statement not covered" >        vm.user = undefined;</span>
+<span class="cstat-no" title="statement not covered" >        vm.userNameClicked = userNameClicked;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        activate();</span>
+&nbsp;
+        ////////////////////
+&nbsp;
+<span class="fstat-no" title="function not covered" >        function activate() {</span>
+<span class="cstat-no" title="statement not covered" >            getCurrentUser();</span>
+<span class="cstat-no" title="statement not covered" >            getMode();</span>
+            // Catch user log on
+<span class="cstat-no" title="statement not covered" >            $rootScope.$on(common.constants.events.userLoggedIn, <span class="fstat-no" title="function not covered" >function(event, data) {</span></span>
+<span class="cstat-no" title="statement not covered" >                vm.user = data;</span>
+            });
+            // Catch user log off
+<span class="cstat-no" title="statement not covered" >            $rootScope.$on(common.constants.events.userLoggedOut, <span class="fstat-no" title="function not covered" >function(event, data) {</span></span>
+<span class="cstat-no" title="statement not covered" >                vm.user = null;</span>
+            });
+            // Catch user mode set
+<span class="cstat-no" title="statement not covered" >            $rootScope.$on(common.constants.events.userModeSet, <span class="fstat-no" title="function not covered" >function(event, data) {</span></span>
+<span class="cstat-no" title="statement not covered" >                vm.mode = data;</span>
+            });
+        }
+&nbsp;
+<span class="fstat-no" title="function not covered" >        function getCurrentUser() {</span>
+<span class="cstat-no" title="statement not covered" >            security.getCurrentUser()</span>
+                .then(<span class="fstat-no" title="function not covered" >function(user) {</span>
+<span class="cstat-no" title="statement not covered" >                    vm.user = user;</span>
+                });
+        }
+&nbsp;
+<span class="fstat-no" title="function not covered" >        function getMode() {</span>
+<span class="cstat-no" title="statement not covered" >            security.getMode()</span>
+                .then(<span class="fstat-no" title="function not covered" >function (mode) {</span>
+<span class="cstat-no" title="statement not covered" >                    vm.mode = mode;</span>
+                });
+        }
+&nbsp;
+<span class="fstat-no" title="function not covered" >        function getModeIcon() {</span>
+<span class="cstat-no" title="statement not covered" >            switch (vm.mode){</span>
+                case constants.modes.teacher:
+<span class="cstat-no" title="statement not covered" >                    return 'fa-users';</span>
+                case constants.modes.class:
+<span class="cstat-no" title="statement not covered" >                    return 'fa-users';</span>
+                default:
+<span class="cstat-no" title="statement not covered" >                    return '';</span>
+            }
+        }
+&nbsp;
+<span class="fstat-no" title="function not covered" >        function userNameClicked($event) {</span>
+<span class="cstat-no" title="statement not covered" >            $mdBottomSheet.show({</span>
+                templateUrl: '/app/layout/userMenu.html',
+                controller: 'UserMenu',
+                targetEvent: $event
+            }).then(<span class="fstat-no" title="function not covered" >function(clickedItem) {</span>
+<span class="cstat-no" title="statement not covered" >                switch (clickedItem.name){</span>
+                    case 'Log Out':
+<span class="cstat-no" title="statement not covered" >                        security.logout();</span>
+<span class="cstat-no" title="statement not covered" >                        break;</span>
+                    case 'Mode':
+<span class="cstat-no" title="statement not covered" >                        security.changeMode();</span>
+<span class="cstat-no" title="statement not covered" >                        break;</span>
+                }
+            });
+        }
+&nbsp;
+<span class="fstat-no" title="function not covered" >        function showMenu($event) {</span>
+<span class="cstat-no" title="statement not covered" >            common.$broadcast(constants.events.showLeftNav, $event);</span>
+        }
+    }
+})();
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Jun 19 2015 14:22:18 GMT-0500 (Central Daylight Time)</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>

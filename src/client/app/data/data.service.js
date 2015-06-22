@@ -1,5 +1,5 @@
-(function(){
-   'use strict';
+(function () {
+    'use strict';
 
     angular
         .module('app.data')
@@ -7,7 +7,8 @@
 
     dataservice.$inject = [];
 
-    function dataservice(){
+    function dataservice() {
 
     }
 })();
+

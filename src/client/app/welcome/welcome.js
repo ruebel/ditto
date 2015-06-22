@@ -1,4 +1,4 @@
-(function(){
+(function () {
     'use strict';
 
     angular
@@ -7,7 +7,7 @@
 
     Welcome.$inject = ['$state', 'common', 'security'];
 
-    function Welcome($state, common, security){
+    function Welcome($state, common, security) {
         /*jshint validthis: true */
         var vm = this;
         var constants = common.constants;
@@ -25,20 +25,20 @@
 
         ////////////////////
 
-        function activate(){
+        function activate() {
         }
 
-        function login(){
+        function login() {
             security.login(vm.user);
         }
 
-        function keyPress($event){
-            if($event.which === constants.keyCodes.enter){
+        function keyPress($event) {
+            if ($event.which === constants.keyCodes.enter) {
                 login();
             }
         }
 
-        function signup(){
+        function signup() {
             $state.go('signup');
         }
     }

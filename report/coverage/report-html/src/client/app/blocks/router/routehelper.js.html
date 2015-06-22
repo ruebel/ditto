@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for ./src/client/app/blocks/router/routehelper.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../../../prettify.css">
+    <link rel="stylesheet" href="../../../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">./src/client/app/blocks/router/routehelper.js</span></h1>
+    <h2>
+        Statements: <span class="metric">30.43% <small>(7 / 23)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">0% <small>(0 / 15)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">14.29% <small>(1 / 7)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">30.43% <small>(7 / 23)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../../../index.html">All files</a> &#187; <a href="index.html">./src/client/app/blocks/router/</a> &#187; routehelper.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51</td><td class="line-coverage"><span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">(function() {
+    'use strict';
+&nbsp;
+    angular
+        .module('blocks.router')
+        .run(routehelper);
+&nbsp;
+    routehelper.$inject = ['$rootScope', '$state', 'security', 'store'];
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function routehelper($rootScope, $state, security, store) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        init();</span>
+&nbsp;
+        /////////////
+&nbsp;
+<span class="fstat-no" title="function not covered" >        function init() {</span>
+<span class="cstat-no" title="statement not covered" >            requireLogin();</span>
+<span class="cstat-no" title="statement not covered" >            updateTitle();</span>
+        }
+&nbsp;
+<span class="fstat-no" title="function not covered" >        function updateTitle() {</span>
+<span class="cstat-no" title="statement not covered" >            $rootScope.$on('$routeChangeSuccess', <span class="fstat-no" title="function not covered" >function(e, nextRoute) {</span></span>
+<span class="cstat-no" title="statement not covered" >                if (nextRoute.$$route &amp;&amp; angular.isDefined(nextRoute.$$route.pageTitle)) {</span>
+<span class="cstat-no" title="statement not covered" >                    $rootScope.pageTitle = nextRoute.$$route.pageTitle + ' | ditto';</span>
+                }
+            });
+        }
+&nbsp;
+<span class="fstat-no" title="function not covered" >        function requireLogin() {</span>
+<span class="cstat-no" title="statement not covered" >            $rootScope.$on('$stateChangeStart', <span class="fstat-no" title="function not covered" >function (event, toState, toParams) {</span></span>
+<span class="cstat-no" title="statement not covered" >                var requireLogin = toState.data.requireLogin;</span>
+<span class="cstat-no" title="statement not covered" >                if (requireLogin) {</span>
+<span class="cstat-no" title="statement not covered" >                    var creds = security.getCreds();</span>
+                    // Login required for current route
+<span class="cstat-no" title="statement not covered" >                    if (!creds.token || !creds.user) {</span>
+                        // we don't have a valid one of the following (security token, user)
+                        // go back to welcome screen and force login
+<span class="cstat-no" title="statement not covered" >                        event.preventDefault();</span>
+<span class="cstat-no" title="statement not covered" >                        $state.go('welcome');</span>
+                    }
+                    else <span class="cstat-no" title="statement not covered" >if ((!creds.sessionId || !creds.userMode) &amp;&amp; toState.name !== 'userMode') {</span>
+                        // we have a valid token and user but not a mode or session
+<span class="cstat-no" title="statement not covered" >                        event.preventDefault();</span>
+<span class="cstat-no" title="statement not covered" >                        $state.go('userMode');</span>
+                    }
+                }
+            });
+        }
+    }
+})();
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Jun 19 2015 14:22:18 GMT-0500 (Central Daylight Time)</div>
+</div>
+<script src="../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../../sorter.js"></script>
+</body>
+</html>

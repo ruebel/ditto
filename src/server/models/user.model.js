@@ -3,10 +3,10 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var userSchema = new Schema({
-    firstName: { type: String, trim: true },
-    lastName: { type: String, trim: true },
-    username: { type: String, trim: true },
-    passwordHash: { type: String },
+    firstName: {type: String, trim: true},
+    lastName: {type: String, trim: true},
+    username: {type: String, trim: true},
+    passwordHash: {type: String},
     passwordSalt: {
         type: String,
         default: generateSalt
@@ -15,7 +15,7 @@ var userSchema = new Schema({
 
 ////////////////
 
-function generateSalt(){
+function generateSalt() {
     return Math.round((new Date().valueOf() * Math.random())) + '';
 }
 

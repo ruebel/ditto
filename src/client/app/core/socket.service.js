@@ -14,8 +14,8 @@
         var socket = socketFactory();
 
         // Forward all socket events
-        for(var key in events){
-            if(events.hasOwnProperty(key)){
+        for (var key in events) {
+            if (events.hasOwnProperty(key)) {
                 socket.forward(events[key]);
             }
         }

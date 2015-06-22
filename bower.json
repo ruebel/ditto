@@ -1,11 +1,16 @@
 {
   "name": "Ditto",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "authors": [
     "Randy Uebel"
   ],
   "moduleType": [
     "node"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
   ],
   "dependencies": {
     "angular": "*",
@@ -17,7 +22,6 @@
     "angular-socket-io": "*",
     "angular-ui-router": "*",
     "a0-angular-storage": "*",
-    "breezejs": "*",
     "font-awesome": "*",
     "jquery": "*",
     "material-design-icons": "*",
@@ -26,6 +30,8 @@
     "toastr": "*"
   },
   "devDependencies": {
-    "angular-mocks": "*"
+    "angular-mocks": "*",
+    "sinon": "*",
+    "bardjs": "~0.1.4"
   }
 }

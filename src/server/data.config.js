@@ -1,4 +1,4 @@
-module.exports = function (){
+module.exports = function () {
     var config      = require('./config'),
         mongoose    = require('mongoose');
     var collections = {};
@@ -27,13 +27,13 @@ module.exports = function (){
         collections: this.collections
     };
 
-    function openMongo(){
+    function openMongo() {
         mongoose.connect(dbConfig.connString + dbConfig.dbName);
 
         db = mongoose.connection;
 
         db.on('error', console.error.bind(console, 'connection error'));
-        db.once('open', function(callback){
+        db.once('open', function(callback) {
             console.log('Holy crap it worked!');
         });
 
@@ -43,5 +43,3 @@ module.exports = function (){
         collections['session'] = session;
     }
 };
-
-

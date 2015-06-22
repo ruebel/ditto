@@ -1,4 +1,4 @@
-(function(){
+(function () {
     'use strict';
 
     angular
@@ -7,7 +7,7 @@
 
     Presentation.$inject = ['$scope', 'common', 'store'];
 
-    function Presentation($scope, common, store){
+    function Presentation($scope, common, store) {
         /*jshint validthis: true */
         var vm = this;
         var constants = common.constants;
@@ -19,12 +19,13 @@
 
         ////////////////////
 
-        function activate(){
+        function activate() {
             vm.mode = store.get('userMode');
 
-            $scope.$on(constants.socketPrefix + constants.socketEvents.message, function(event, data){
-                logger.info('Message received: ' + data.payload);
-            });
+            $scope.$on(constants.socketPrefix + constants.socketEvents.message,
+                       function(event, data) {
+                           logger.info('Message received: ' + data.payload);
+                       });
         }
     }
 })();

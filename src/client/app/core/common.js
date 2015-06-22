@@ -1,11 +1,19 @@
-(function () {
+(function() {
     'use strict';
 
     angular
         .module('app.core')
         .factory('common', common);
 
-    common.$inject = ['$location', '$q', '$rootScope', '$timeout', 'constants', 'logger', 'loading'];
+    common.$inject = [
+        '$location',
+        '$q',
+        '$rootScope',
+        '$timeout',
+        'constants',
+        'logger',
+        'loading'
+    ];
 
     function common($location, $q, $rootScope, $timeout, constants, logger, loading) {
         var throttles = {};
@@ -47,22 +55,22 @@
             }
 
             // create the filtering function we will call from here
-            var filterFn = function () {
+            var filterFn = function() {
                 // translates to ...
                 // vm.filteredSessions
                 //      = vm.sessions.filter(function(item( { returns vm.sessionFilter (item) } );
-                viewmodel[filteredList] = viewmodel[list].filter(function (item) {
+                viewmodel[filteredList] = viewmodel[list].filter(function(item) {
                     return viewmodel[filter](item);
                 });
             };
 
-            return (function () {
+            return (function() {
                 // Wrapped in outer IIFE so we can use closure
                 // over filterInputTimeout which references the timeout
                 var filterInputTimeout;
 
                 // return what becomes the 'applyFilter' function in the controller
-                return function (searchNow) {
+                return function(searchNow) {
                     if (filterInputTimeout) {
                         $timeout.cancel(filterInputTimeout);
                         filterInputTimeout = null;

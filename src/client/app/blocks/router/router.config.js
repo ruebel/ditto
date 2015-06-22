@@ -1,10 +1,15 @@
-(function(){
+(function() {
     'use strict';
 
     var app = angular.module('blocks.router');
     app.config(configure);
 
-    configure.$inject = ['$httpProvider', '$stateProvider', '$urlRouterProvider', 'jwtInterceptorProvider'];
+    configure.$inject = [
+        '$httpProvider',
+        '$stateProvider',
+        '$urlRouterProvider',
+        'jwtInterceptorProvider'
+    ];
 
     function configure($httpProvider, $stateProvider, $urlRouterProvider, jwtInterceptorProvider) {
         // any unmatched url, redirected to welcome page
@@ -13,7 +18,7 @@
         jwtInterceptorProvider.tokenGetter = tokenGetter;
 
         tokenGetter.$inject = ['store'];
-        function tokenGetter(store){
+        function tokenGetter(store) {
             return store.get('jwt');
         }
 

@@ -1,4 +1,4 @@
-(function(){
+(function() {
     'use strict';
 
     angular
@@ -7,7 +7,7 @@
 
     Login.$inject = ['$scope', 'common', 'security'];
 
-    function Login($scope, common, security){
+    function Login($scope, common, security) {
         /*jshint validthis: true */
         var vm = this;
         var constants = common.constants;
@@ -24,15 +24,15 @@
 
         ////////////////////
 
-        function activate(){
+        function activate() {
             logger.success('Login loaded!');
         }
 
-        function cancel(){
+        function cancel() {
             return $scope.$dismiss;
         }
 
-        function login(){
+        function login() {
             security.login(vm.user);
         }
     }

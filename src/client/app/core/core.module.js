@@ -5,26 +5,23 @@
         /*
          * Angular modules
          */
-        'ngAnimate'
-        , 'ngSanitize'
+        'ngAnimate',
+        'ngSanitize',
 
         /*
          * Our reusable cross app code modules
          */
-        , 'blocks.directives'
-        , 'blocks.exception'
-        , 'blocks.logger'
-        , 'blocks.router'
+        'blocks.directives',
+        'blocks.exception',
+        'blocks.logger',
+        'blocks.router',
 
         /*
          * 3rd Party modules
          */
-        //,'ui.bootstrap'     // ui-bootstrap (ex: carousel, pagination, dialog)
-        //, 'breeze.angular'   // tells breeze to use $q instead of Q.js
-        //, 'breeze.directives'// breeze validation directive (zValidate)
-        , 'ngMaterial'  // Angular Material Design
-        , 'angular-jwt' // json web token service
-        , 'angular-storage' // Angular Storage
-        , 'btford.socket-io' // Angular - SocketIO shim
+        'ngMaterial',  // Angular Material Design
+        'angular-jwt', // json web token service
+        'angular-storage', // Angular Storage
+        'btford.socket-io', // Angular - SocketIO shim
     ]);
 })();

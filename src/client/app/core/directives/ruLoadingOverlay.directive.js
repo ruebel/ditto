@@ -10,20 +10,20 @@
     ruLoadingOverlay.$inject = ['constants', '$timeout'];
 
     function ruLoadingOverlay(constants, $timeout) {
-
         var events = constants.events;
 
-        return {
+        var service = {
             restrict: 'E',
             templateUrl: '/app/core/directives/ruLoadingOverlay.html',
             scope: true,
             link: loadingOverlayLink
         };
 
+        return service;
+
         ////////////////////
 
         function loadingOverlayLink(scope, element) {
-
             var showing = false;
             var timer = null;
             var veil = $('<div class="loading-veil"></div>').insertAfter(element);
@@ -42,7 +42,6 @@
                 if (!showing) {
                     timer = $timeout(showVeil, 750);
                 }
-
                 showing = true;
             }
 
@@ -69,12 +68,8 @@
                 if (timer) {
                     $timeout.cancel(timer);
                 }
-
                 timer = null;
             }
-
         }
-
     }
-
 })();

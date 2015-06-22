@@ -1,4 +1,4 @@
-(function(){
+(function () {
     'use strict';
 
     angular
@@ -7,7 +7,7 @@
 
     Shell.$inject = ['$mdBottomSheet', '$rootScope', 'common', 'security'];
 
-    function Shell($mdBottomSheet, $rootScope, common, security){
+    function Shell($mdBottomSheet, $rootScope, common, security) {
         /*jshint validthis: true */
         var vm = this;
         var constants = common.constants;
@@ -23,26 +23,26 @@
 
         ////////////////////
 
-        function activate(){
+        function activate() {
             getCurrentUser();
             getMode();
             // Catch user log on
-            $rootScope.$on(common.constants.events.userLoggedIn, function(event, data){
+            $rootScope.$on(common.constants.events.userLoggedIn, function(event, data) {
                 vm.user = data;
             });
             // Catch user log off
-            $rootScope.$on(common.constants.events.userLoggedOut, function(event, data){
+            $rootScope.$on(common.constants.events.userLoggedOut, function(event, data) {
                 vm.user = null;
             });
             // Catch user mode set
-            $rootScope.$on(common.constants.events.userModeSet, function(event, data){
+            $rootScope.$on(common.constants.events.userModeSet, function(event, data) {
                 vm.mode = data;
             });
         }
 
-        function getCurrentUser(){
+        function getCurrentUser() {
             security.getCurrentUser()
-                .then(function(user){
+                .then(function(user) {
                     vm.user = user;
                 });
         }
@@ -55,7 +55,7 @@
         }
 
         function getModeIcon() {
-            switch(vm.mode){
+            switch (vm.mode){
                 case constants.modes.teacher:
                     return 'fa-users';
                 case constants.modes.class:
@@ -65,13 +65,13 @@
             }
         }
 
-        function userNameClicked($event){
+        function userNameClicked($event) {
             $mdBottomSheet.show({
                 templateUrl: '/app/layout/userMenu.html',
                 controller: 'UserMenu',
                 targetEvent: $event
-            }).then(function(clickedItem){
-                switch(clickedItem.name){
+            }).then(function(clickedItem) {
+                switch (clickedItem.name){
                     case 'Log Out':
                         security.logout();
                         break;
@@ -82,7 +82,7 @@
             });
         }
 
-        function showMenu($event){
+        function showMenu($event) {
             common.$broadcast(constants.events.showLeftNav, $event);
         }
     }

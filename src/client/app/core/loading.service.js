@@ -20,7 +20,6 @@
     loadingService.$inject = ['$rootScope', 'constants'];
 
     function loadingService($rootScope, constants) {
-
         var events = constants.events;
 
         var currentMessage = null;
@@ -53,7 +52,6 @@
                 currentMessage = value;
                 show();
             }
-
             return currentMessage;
         }
 
@@ -66,7 +64,5 @@
         function hide() {
             $rootScope.$broadcast(events.hideLoadingOverlay);
         }
-
     }
-
 })();

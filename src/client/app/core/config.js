@@ -29,7 +29,7 @@
             exceptionConfigProvider.config.appErrorPrefix = '[Ditto Error]';
         }
 
-        function configureMaterialDesign(){
+        function configureMaterialDesign() {
             $mdThemingProvider.theme('default')
                 .primaryPalette('cyan')
                 .accentPalette('orange');

@@ -1,4 +1,4 @@
-(function(){
+(function () {
     'use strict';
 
     angular
@@ -7,7 +7,7 @@
 
     UserMenu.$inject = ['$mdBottomSheet'];
 
-    function UserMenu($mdBottomSheet){
+    function UserMenu($mdBottomSheet) {
         /*jshint validthis: true */
         var vm = this;
 
@@ -18,7 +18,7 @@
 
         ////////////////////
 
-        function activate(){
+        function activate() {
             vm.items = [
                 {
                     name: 'Log Out',
@@ -31,7 +31,7 @@
             ];
         }
 
-        function itemClicked($index){
+        function itemClicked($index) {
             var clickedItem = vm.items[$index];
             $mdBottomSheet.hide(clickedItem);
         }

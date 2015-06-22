@@ -1,4 +1,4 @@
-(function(){
+(function () {
     'use strict';
 
     angular
@@ -7,22 +7,22 @@
 
     loginModal.$inject = ['$mdDialog', '$rootScope'];
 
-    function loginModal($mdDialog, $rootScope){
+    function loginModal($mdDialog, $rootScope) {
 
         var service = {
-          createModal: createModal
+            createModal: createModal
         };
 
         return service;
 
         ////////////
 
-        function assignCurrentUser(user){
+        function assignCurrentUser(user) {
             $rootScope.currentUser = user;
             return user;
         }
 
-        function createModal(){
+        function createModal() {
             return $mdDialog.show({
                 templateUrl: 'app/login/login.html',
                 controller: 'Login',

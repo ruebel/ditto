@@ -8,7 +8,7 @@
         .constant('toastr', toastr)
         .factory('constants', constants);
 
-    function constants(){
+    function constants() {
 
         var appName = 'Ditto';
 

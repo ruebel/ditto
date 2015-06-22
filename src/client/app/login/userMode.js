@@ -1,4 +1,4 @@
-(function(){
+(function () {
     'use strict';
 
     angular
@@ -7,7 +7,7 @@
 
     UserMode.$inject = ['common', 'security'];
 
-    function UserMode(common, security){
+    function UserMode(common, security) {
         /*jshint validthis: true */
         var vm = this;
         var logger = common.logger;
@@ -19,15 +19,15 @@
 
         ////////////////////
 
-        function activate(){
+        function activate() {
 
         }
 
-        function classClick(){
+        function classClick() {
             security.setMode(common.constants.modes.class);
         }
 
-        function teacherClick(){
+        function teacherClick() {
             security.setMode(common.constants.modes.teacher);
         }
     }
