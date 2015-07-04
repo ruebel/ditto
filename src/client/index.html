@@ -43,6 +43,7 @@
     <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="/bower_components/a0-angular-storage/dist/angular-storage.js"></script>
     <script src="/bower_components/moment/moment.js"></script>
+    <script src="/bower_components/socket.io-client/socket.io.js"></script>
     <script src="/bower_components/toastr/toastr.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
@@ -52,12 +53,12 @@
     <script src="/src/client/app/app.module.js"></script>
     <script src="/src/client/app/core/core.module.js"></script>
     <script src="/src/client/app/dashboard/dashboard.module.js"></script>
+    <script src="/src/client/app/signup/signup.module.js"></script>
     <script src="/src/client/app/data/data.module.js"></script>
+    <script src="/src/client/app/login/login.module.js"></script>
     <script src="/src/client/app/layout/layout.module.js"></script>
     <script src="/src/client/app/presentation/presentation.module.js"></script>
-    <script src="/src/client/app/login/login.module.js"></script>
     <script src="/src/client/app/welcome/welcome.module.js"></script>
-    <script src="/src/client/app/signup/signup.module.js"></script>
     <script src="/src/client/app/blocks/directives/directives.module.js"></script>
     <script src="/src/client/app/blocks/exception/exception.module.js"></script>
     <script src="/src/client/app/blocks/logger/logger.module.js"></script>
@@ -70,17 +71,16 @@
     <script src="/src/client/app/core/security.service.js"></script>
     <script src="/src/client/app/core/socket.service.js"></script>
     <script src="/src/client/app/dashboard/dashboard.js"></script>
+    <script src="/src/client/app/signup/signup.js"></script>
     <script src="/src/client/app/data/data.service.js"></script>
+    <script src="/src/client/app/login/login.js"></script>
+    <script src="/src/client/app/login/login.modal.js"></script>
+    <script src="/src/client/app/login/userMode.js"></script>
     <script src="/src/client/app/layout/main.js"></script>
     <script src="/src/client/app/layout/shell.js"></script>
     <script src="/src/client/app/layout/userMenu.js"></script>
     <script src="/src/client/app/presentation/presentation.js"></script>
-    <script src="/src/client/app/login/login.js"></script>
-    <script src="/src/client/app/login/login.modal.js"></script>
-    <script src="/src/client/app/login/userMode.js"></script>
     <script src="/src/client/app/welcome/welcome.js"></script>
-    <script src="/src/client/app/signup/signup.js"></script>
-    <script src="/src/client/app/core/directives/ruLoadingOverlay.directive.js"></script>
     <script src="/src/client/app/blocks/directives/ruDisposeOnLoad.directive.js"></script>
     <script src="/src/client/app/blocks/directives/ruTimer.directive.js"></script>
     <script src="/src/client/app/blocks/exception/exception-handler.provider.js"></script>
@@ -89,6 +89,7 @@
     <script src="/src/client/app/blocks/timer/timer.service.js"></script>
     <script src="/src/client/app/blocks/router/routehelper.js"></script>
     <script src="/src/client/app/blocks/router/router.config.js"></script>
+    <script src="/src/client/app/core/directives/ruLoadingOverlay.directive.js"></script>
     <!-- endinject -->
     
     <!-- inject:templates:js -->

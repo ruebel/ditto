@@ -39,7 +39,7 @@ module.exports = function () {
             clientApp + '**/*.js',
             '!' + clientApp + '**/*.spec.js'
         ],
-        less: client + 'styles/ditto.less',
+        less: client + 'styles/styles.less',
         nodejs: [
             server + '**/**/*.js'
         ],

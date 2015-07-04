@@ -33,5 +33,10 @@
     "angular-mocks": "*",
     "sinon": "*",
     "bardjs": "~0.1.4"
+  },
+  "overrides": {
+    "socket.io-client": {
+      "main": "socket.io.js"  
+    }
   }
 }

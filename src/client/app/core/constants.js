@@ -10,7 +10,7 @@
 
     function constants() {
 
-        var appName = 'Ditto';
+        var appName = 'ditto';
 
         var dateSettings = {
             shortFormat: 'MM/DD/YYYY',

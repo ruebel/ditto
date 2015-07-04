@@ -25,8 +25,15 @@ html {
   width: 100%;
 }
 .site-flex-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   position: relative;
   min-height: 100%;
   min-width: 100%;
@@ -34,7 +41,8 @@ html {
 #page-content-wrapper {
   -webkit-flex-grow: 1;
   -moz-flex-grow: 1;
-  flex-grow: 1;
+  -webkit-box-flex: 1;
+          flex-grow: 1;
   -ms-flex-positive: 1;
   overflow: auto;
   position: relative;
@@ -46,7 +54,8 @@ html {
 #content {
   -webkit-flex-grow: 1;
   -moz-flex-grow: 1;
-  flex-grow: 1;
+  -webkit-box-flex: 1;
+          flex-grow: 1;
   -ms-flex-positive: 1;
   display: -webkit-box;
   display: -moz-box;
