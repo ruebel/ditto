@@ -5,10 +5,10 @@
                     md-is-locked-open="$mdMedia('gt-lg')">
             <md-content flex role="navigation">
                 <ul class="docs-menu">
-                    <li>
+                    <li ng-repeat="state in vm.states" ui-sref-active="active" ng-click="vm.hideNav()">
                         <menu-link section="page">
-                            <a class="md-button" href="#/dashboard">
-                                Test Menu
+                            <a class="md-button" ui-sref="{{state.sref}}"\>
+                                <i class="md-pad" ng-class="state.icon"/>{{state.name}}
                             </a>
                         </menu-link>
                     </li>

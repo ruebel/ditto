@@ -1,7 +1,7 @@
 <div ng-controller="Shell as vm" flex>
     <md-toolbar class="toolbar-top">
         <div class="md-toolbar-tools">
-            <md-button hide-gt-lg ng-click="vm.showMenu()" class="md-icon-button site-title">
+            <md-button hide-gt-lg ng-click="vm.showMenu()" class="md-icon-button site-title" ng-if="vm.mode === 'teacher'">
                 <i class="fa fa-bars"></i>
             </md-button>
             <span>

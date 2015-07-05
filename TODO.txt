@@ -1,0 +1,11 @@
+Build:
+1. Create gulp task to update remoteServiceNames.baseAddress on build
+
+Client:
+3. Create new opening page to select from student / teacher
+	- Student goes to pin login
+	- Teacher goes to normal login page
+
+Server:
+1. Make session unique to login
+1. Create periods / classes / prep / student / question data structures

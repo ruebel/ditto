@@ -61,6 +61,13 @@
                     requireLogin: true
                 }
             })
+            .state('app.timer', {
+                url: '/timer',
+                templateUrl: 'app/timer/timer.html',
+                data: {
+                    requireLogin: true
+                }
+            })
             .state('presentation', {
                 url: '/presentation',
                 templateUrl: 'app/presentation/presentation.html',

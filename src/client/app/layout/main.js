@@ -5,18 +5,23 @@
         .module('app.layout')
         .controller('Main', Main);
 
-    Main.$inject = ['$mdComponentRegistry', '$rootScope', 'security', 'common'];
+    Main.$inject = ['$location', '$mdComponentRegistry', '$rootScope', 'security', 'common'];
 
-    function Main($mdComponentRegistry, $rootScope, security, common) {
+    function Main($location, $mdComponentRegistry, $rootScope, security, common) {
         /*jshint validthis: true */
         var vm = this;
         var constants = common.constants;
         var logger = common.logger;
 
+        vm.hideNav = hideNav;
         vm.mode = undefined;
         vm.nav = {
             id: 'sitenav'
         };
+        vm.states = [
+            {name: 'Home', sref: 'app.dashboard', icon: 'fa fa-home'},
+            {name: 'Timer', sref: 'app.timer', icon: 'fa fa-clock-o'}
+        ];
         vm.title = constants.appTitle;
 
         activate();
