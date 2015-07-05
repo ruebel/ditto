@@ -13,7 +13,7 @@
   "main": "server.js",
   "scripts": {
     "init": "npm install",
-    "install": "bower install",
+    "postinstall": "export HOME=/var/lib/openshift/555e3ea44382ec33a7000048/app-root/runtime/repo; ./node_modules/bower/bin/bower install",
     "start": "server.js"
   },
   "dependencies": {

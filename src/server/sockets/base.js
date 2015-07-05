@@ -4,6 +4,7 @@ module.exports = function (io) {
     var events = {
         disconnect: 'disconnect',
         message: 'message',
+        timerPause: 'timer.pause',
         timerStart: 'timer.start',
         timerStop: 'timer.stop'
     };
@@ -11,6 +12,7 @@ module.exports = function (io) {
     io.on('connection', function (socket) {
         // Catch socket events
         socket.on(events.message, message);
+        socket.on(events.timerPause, timerPause);
         socket.on(events.timerStart, timerStart);
         socket.on(events.timerStop, timerStop);
         socket.on(events.disconnect, disconnect);
@@ -36,6 +38,15 @@ module.exports = function (io) {
             logEvent(events.message, from, msg);
 
             io.sockets.emit(events.message, {
+                payload: msg,
+                source: from
+            });
+        }
+
+        function timerPause(from, msg) {
+            logEvent(events.timerPause, from, msg);
+
+            io.sockets.emit(events.timerPause, {
                 payload: msg,
                 source: from
             });

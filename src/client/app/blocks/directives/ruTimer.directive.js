@@ -38,6 +38,7 @@
         var constants = common.constants;
         var logger = common.logger;
 
+        vm.sendTimerPause = sendTimerPause;
         vm.sendTimerStart = sendTimerStart;
         vm.sendTimerStop = sendTimerStop;
         vm.time = {
@@ -46,10 +47,13 @@
             minutes: 1,
             seconds: 0
         };
-        vm.timeMode = moment();
+        vm.timeMode = 1;
         vm.timer = {
-            run: false,
             end: undefined,
+            message: 'Fin.',
+            pause: false,
+            pauseTime: undefined,
+            run: false,
             show: false,
             start: undefined,
             timeLeft: undefined
@@ -60,6 +64,12 @@
         ////////////////////////////////////////
 
         function activate() {
+            // Catch pause timer
+            $scope.$on(constants.socketPrefix + constants.socketEvents.timerPause,
+                       function(event, data) {
+                           logger.info('Timer Paused', data.payload);
+                           pause();
+                       });
             // Catch start timer
             $scope.$on(constants.socketPrefix + constants.socketEvents.timerStart,
                        function(event, data) {
@@ -98,14 +108,42 @@
             }
         }
 
+        // Pause timer
+        function pause() {
+            // Set pause flag
+            vm.timer.pause = true;
+            // Store how much time is left so we can resume with that much time
+            vm.timer.pauseTime = moment(vm.timer.end) - moment();
+        }
+
+        // Send pause timer command
+        function sendTimerPause() {
+            // Make sure timer is running
+            if (vm.timer.run) {
+                socket.emit(constants.socketEvents.timerPause, 'test', '0');
+            }
+        }
+
         // Send start timer command
         function sendTimerStart() {
             var end;
             if (vm.timeMode === 1) {
-                end = moment().add(vm.time.hours, 'hours')
-                    .add(vm.time.minutes, 'minutes')
-                    .add(vm.time.seconds, 'seconds');
+                // Countdown mode
+                if (vm.timer.pause) {
+                    // Paused timer
+                    // Add pause time to current time
+                    end = moment().add(vm.timer.pauseTime, 'milliseconds');
+                    // Clear pause time
+                    vm.timer.pauseTime = 0;
+                } else {
+                    // Regular start
+                    // Calculate from Hrs Min Sec
+                    end = moment().add(vm.time.hours, 'hours')
+                        .add(vm.time.minutes, 'minutes')
+                        .add(vm.time.seconds, 'seconds');
+                }
             } else {
+                // End time mode
                 end = moment().startOf('day').add(vm.time.end);
                 if (end < moment()) {
                     logger.warning('End time is less than start time');
@@ -126,27 +164,30 @@
             vm.timer.timeLeft = getTimeDiff(moment(), moment(vm.timer.end));
             vm.timer.run = true;
             vm.timer.show = true;
+            vm.timer.pause = false;
             doTimer();
         }
 
         // Stop the timer
         function stop() {
+            // Clearn run and pause flags
             vm.timer.run = false;
+            vm.timer.pause = false;
         }
 
         // Timer running 'thread'
         function doTimer() {
             // Check if we are still running
-            if (!vm.timer.run) {
+            if (!vm.timer.run || vm.timer.pause) {
                 return;
             }
             // Check if time has run out
             if (moment(vm.timer.end) <= moment()) {
                 // Time is up
-                vm.timer.timeLeft = 'That\'s all folks';
+                vm.timer.messasge = 'Fin.';
                 vm.timer.run = false;
                 return;
-            } else {
+            } else if (!vm.timer.pause) {
                 // Update time and continue running
                 vm.timer.timeLeft = getTimeDiff(moment(), moment(vm.timer.end));
             }

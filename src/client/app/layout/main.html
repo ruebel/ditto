@@ -1,18 +1,20 @@
 <section layout="row" flex class="fullBody" data-ng-controller="Main as vm">
-    <md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2"
-                md-component-id="sitenav"
-                md-is-locked-open="$mdMedia('gt-lg')">
-        <md-content flex role="navigation">
-            <ul class="docs-menu">
-                <li>
-                    <menu-link section="page">
-                        <a class="md-button" href="#/dashboard">
-                            Test Menu
-                        </a>
-                    </menu-link>
-                </li>
-            </ul>
-        </md-content>
-    </md-sidenav>
+    <div ng-if="vm.mode === 'teacher'">
+        <md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2"
+                    md-component-id="sitenav"
+                    md-is-locked-open="$mdMedia('gt-lg')">
+            <md-content flex role="navigation">
+                <ul class="docs-menu">
+                    <li>
+                        <menu-link section="page">
+                            <a class="md-button" href="#/dashboard">
+                                Test Menu
+                            </a>
+                        </menu-link>
+                    </li>
+                </ul>
+            </md-content>
+        </md-sidenav>
+    </div>
     <md-content data-ui-view md-scroll-y role="main" class="md-padding md-default-theme" flex></md-content>
 </section>

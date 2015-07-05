@@ -22,12 +22,16 @@
             <input type="time" ng-model="vm.time.end">
         </div>
     </div>
-    <md-button class="md-raised md-primary" ng-click="vm.sendTimerStart()"><i class="fa fa-clock-o"></i> Start</md-button>
-    <md-button class="md-raised md-primary" ng-click="vm.sendTimerStop()"><i class="fa fa-stop"></i> Stop</md-button>
+    <md-button class="md-raised md-primary" ng-click="vm.sendTimerStart()" ng-disabled="vm.timer.run && !vm.timer.pause">
+        <i class="fa fa-clock-o"></i> Start</md-button>
+    <md-button class="md-raised md-primary" ng-click="vm.sendTimerPause()" ng-disabled="!vm.timer.run || vm.timer.pause" ng-if="vm.timeMode == 1">
+        <i class="fa fa-pause"></i> Pause</md-button>
+    <md-button class="md-raised md-primary" ng-click="vm.sendTimerStop()" ng-disabled="!vm.timer.run">
+        <i class="fa fa-stop"></i> Stop</md-button>
     <md-card ng-if="vm.timer.run" class="md-accent timer-card">
         <md-card-content>
 
-            <i class="fa fa-clock-o"></i>
+            <i class='fa' ng-class="vm.timer.pause ? 'fa-pause' : 'fa-clock-o'"></i>
             <span>{{vm.timer.timeLeft}}</span>
         </md-card-content>
     </md-card>

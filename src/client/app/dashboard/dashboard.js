@@ -13,8 +13,6 @@
         var constants = common.constants;
         var logger = common.logger;
 
-        vm.sendMessage = sendMessage;
-
         activate();
 
         ////////////////////
@@ -26,11 +24,6 @@
                            logger.info('Message received: ' + data.payload);
                        });
 
-        }
-
-        // TODO: Test Method - Remove for production
-        function sendMessage() {
-            socket.emit(constants.socketEvents.message, 'test', 'test message');
         }
     }
 })();

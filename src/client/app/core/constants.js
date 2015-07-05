@@ -41,8 +41,8 @@
         };
 
         var remoteServiceNames = {
-            baseAddress: 'http://localhost:8080/',                  // Development
-            //baseAddress: 'http://ditto-ubel.rhcloud.com:8000/',   // Production
+            //baseAddress: 'http://localhost:8080/',                  // Development
+            baseAddress: 'http://ditto-ubel.rhcloud.com:8000/',   // Production
             userCreate: 'users/create',
             userLogin: 'users/login',
             sessionOpen: 'sessions/open'
@@ -69,6 +69,7 @@
         var socketEvents = {
             disconnect: 'disconnect',
             message: 'message',
+            timerPause: 'timer.pause',
             timerStart: 'timer.start',
             timerStop: 'timer.stop'
         };

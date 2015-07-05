@@ -1,3 +1,7 @@
 <section>
-    <span ng-show="vm.timer.show" class="p-timer"><i ng-if="vm.timer.run" class="fa fa-clock-o"></i> {{vm.timer.timeLeft}}</span>
+    <span ng-show="vm.timer.show" class="p-timer">
+        <i ng-if="vm.timer.run" class="fa" ng-class="vm.timer.pause ? 'fa-pause' : 'fa-clock-o'"></i> 
+        <span ng-if="vm.timer.run">{{vm.timer.timeLeft}}</span>
+        <span ng-if="!vm.timer.run">{{vm.timer.message}}</span>
+    </span>
 </section>

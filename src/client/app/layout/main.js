@@ -5,14 +5,15 @@
         .module('app.layout')
         .controller('Main', Main);
 
-    Main.$inject = ['$mdComponentRegistry', '$rootScope', 'common'];
+    Main.$inject = ['$mdComponentRegistry', '$rootScope', 'security', 'common'];
 
-    function Main($mdComponentRegistry, $rootScope, common) {
+    function Main($mdComponentRegistry, $rootScope, security, common) {
         /*jshint validthis: true */
         var vm = this;
         var constants = common.constants;
         var logger = common.logger;
 
+        vm.mode = undefined;
         vm.nav = {
             id: 'sitenav'
         };
@@ -27,6 +28,15 @@
             $rootScope.$on(constants.events.showLeftNav, showNav);
             $rootScope.$on(constants.events.hideLeftNav, hideNav);
             $rootScope.$on(constants.events.toggleLeftNav, toggleNav);
+            // Get user mode
+            getMode();
+        }
+
+        function getMode() {
+            security.getMode()
+                .then(function (mode) {
+                    vm.mode = mode;
+                });
         }
 
         function hideNav() {
