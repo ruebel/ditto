@@ -8,6 +8,7 @@ module.exports = function(dataconfig, UserProfileModel) {
     var app = module.exports = express.Router();
     var collections = dataconfig.collections;
     var User = collections.user;
+    var Session = collections.session;
 
     console.log('Loading User Routes');
 
@@ -76,9 +77,8 @@ module.exports = function(dataconfig, UserProfileModel) {
             if (passwordHash !== user.passwordHash) {
                 return res.status(401).send('The username and password do not match');
             }
-
-            // Send back id_token and user profile object to client
-            res.status(201).send({
+            // Successful login send back info
+            return res.status(201).send({
                 idToken: createToken(user),
                 user: new UserProfileModel({
                     firstName: user.firstName,
@@ -115,6 +115,38 @@ module.exports = function(dataconfig, UserProfileModel) {
                 .digest('hex');
         } catch (err) {
             return '';
+        }
+    }
+    // Gets and updates a user's session
+    function getUserSession(userId, callback, res) {
+        Session.findOne({userId: userId}, foundSession);
+
+        function foundSession(err, session) {
+            // check for error during query
+            if (err) {
+                return handleError(err, res);
+            }
+            // Check to see if we found a session
+            if (!session) {
+                // Session doesn't exist so create new
+                session = new Session ({
+                    userId: userId,
+                    start: new Date(),
+                    connections: 1
+                });
+                session.save(sessionSaved);
+            } else {
+                // Session exists add new connection and bump the date
+                session.connections++;
+                session.start = new Date();
+                session.save(sessionSaved);
+            }
+
+            ////////////////////
+
+            function sessionSaved() {
+                callback(session);
+            }
         }
     }
     // Handle internal server error

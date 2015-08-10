@@ -7,13 +7,12 @@
 
     ////////////////////
 
-    securityService.$inject = ['$http', '$state', 'common', 'store'];
+    securityService.$inject = ['$http', '$state', 'common', 'socket', 'store'];
 
-    function securityService($http, $state, common, store) {
+    function securityService($http, $state, common, socket, store) {
         var constants = common.constants;
         var logger = common.logger;
         var loggedOnUser;
-        var session;
         var server = constants.remoteServiceNames;
         var token;
         var userMode;
@@ -22,14 +21,14 @@
         var service = {
             changeMode: changeMode,
             createUser: createUser,
+            emit: emit,
             login: login,
             logout: logout,
             getCreds: getCreds,
             getCurrentUser: getCurrentUser,
             getMode: getMode,
-            getSessionId: getSessionId,
             getToken: getToken,
-            setMode: setMode
+            setMode: setMode,
         };
 
         return service;
@@ -58,12 +57,15 @@
             }
         }
 
+        function emit(event, data) {
+            socket.emit(event, getCreds(), data);
+        }
+
         function getCreds() {
             if (!token) {
                 recoverSession();
             }
             return {
-                sessionId: session,
                 token: token,
                 user: loggedOnUser,
                 userMode: userMode
@@ -78,11 +80,6 @@
         function getMode() {
             // Return current user mode in a promise
             return $q.when(userMode);
-        }
-
-        function getSessionId() {
-            // Return current session in a promise
-            return $q.when(session);
         }
 
         function getToken() {
@@ -113,11 +110,9 @@
             loggedOnUser = null;
             token = null;
             userMode = null;
-            session = null;
             store.set('jwt', '');
             store.set('user', '');
             store.set('userMode', '');
-            store.set('sid', '');
             common.$broadcast(constants.events.userLoggedOut);
             $state.go('welcome');
             logger.info('Logged Out');
@@ -154,16 +149,9 @@
             if (token) {
                 recoverLoggedOnUser();
                 recoverUserMode();
-                recoverSessionId();
-                if (loggedOnUser && userMode && session) {
+                if (loggedOnUser && userMode) {
                     logger.info('Recovered session');
                 }
-            }
-        }
-
-        function recoverSessionId() {
-            if (!session) {
-                session = store.get('sid');
             }
         }
 
@@ -181,10 +169,11 @@
 
             function setModeSucceeded(response) {
                 userMode = mode;
-                session = response.data.sessionId;
                 store.set('userMode', mode);
-                store.set('sid', response.data.sessionId);
                 common.$broadcast(constants.events.userModeSet, mode);
+                // Subscribe to socket room
+                socket.emit(constants.socketEvents.subscribe, getCreds());
+                // Go to page depending on mode
                 if (mode === constants.modes.teacher) {
                     // Teacher mode
                     $state.go('app.dashboard');

@@ -31,9 +31,9 @@
         }
     }
 
-    RuTimerController.$inject = ['$scope', '$timeout', 'common', 'socket'];
+    RuTimerController.$inject = ['$scope', '$timeout', 'common', 'security'];
 
-    function RuTimerController($scope, $timeout, common, socket) {
+    function RuTimerController($scope, $timeout, common, security) {
         var vm = this;
         var constants = common.constants;
         var logger = common.logger;
@@ -84,6 +84,31 @@
                        });
         }
 
+        // Timer running 'thread'
+        function doTimer() {
+            // Check if we are still running
+            if (!vm.timer.run || vm.timer.pause) {
+                return;
+            }
+            // Check if time has run out
+            if (moment(vm.timer.end) <= moment()) {
+                // Time is up
+                vm.timer.messasge = 'Fin.';
+                vm.timer.run = false;
+                return;
+            } else if (!vm.timer.pause) {
+                // Update time and continue running
+                vm.timer.timeLeft = getTimeDiff(moment(), moment(vm.timer.end));
+            }
+            // wait and update every 250 ms
+            $timeout(doTimer, 250);
+        }
+
+        // Emits socket event
+        function emitEvent(event, data) {
+            security.emit(event, data);
+        }
+
         // Gets difference between start and end time in ms
         function getTimeDiff(start, end) {
             var diff = (end - start) / 1000;
@@ -120,7 +145,7 @@
         function sendTimerPause() {
             // Make sure timer is running
             if (vm.timer.run) {
-                socket.emit(constants.socketEvents.timerPause, 'test', '0');
+                emitEvent(constants.socketEvents.timerPause, '0');
             }
         }
 
@@ -150,12 +175,12 @@
                     return;
                 }
             }
-            socket.emit(constants.socketEvents.timerStart, 'test', {end: end});
+            emitEvent(constants.socketEvents.timerStart, {end: end});
         }
 
         // Send stop timer command
         function sendTimerStop() {
-            socket.emit(constants.socketEvents.timerStop, 'test', '0');
+            emitEvent(constants.socketEvents.timerStop, '0');
         }
 
         // Start the timer
@@ -173,26 +198,6 @@
             // Clearn run and pause flags
             vm.timer.run = false;
             vm.timer.pause = false;
-        }
-
-        // Timer running 'thread'
-        function doTimer() {
-            // Check if we are still running
-            if (!vm.timer.run || vm.timer.pause) {
-                return;
-            }
-            // Check if time has run out
-            if (moment(vm.timer.end) <= moment()) {
-                // Time is up
-                vm.timer.messasge = 'Fin.';
-                vm.timer.run = false;
-                return;
-            } else if (!vm.timer.pause) {
-                // Update time and continue running
-                vm.timer.timeLeft = getTimeDiff(moment(), moment(vm.timer.end));
-            }
-            // wait and update every 250 ms
-            $timeout(doTimer, 250);
         }
     }
 })();

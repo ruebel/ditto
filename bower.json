@@ -16,6 +16,7 @@
     "angular": "*",
     "angular-animate": "*",
     "angular-aria": "*",
+    "angular-messages": "~1.4.3",
     "angular-jwt": "*",
     "angular-material": "*",
     "angular-sanitize": "*",
@@ -36,7 +37,16 @@
   },
   "overrides": {
     "socket.io-client": {
-      "main": "socket.io.js"  
+      "main": "socket.io.js"
+    },
+    "font-awesome": {
+      "main": [
+        "css/font-awesome.css",
+        "fonts/*"
+      ]
     }
+  },
+  "resolutions": {
+    "angular": "1.4.3"
   }
 }

@@ -38,7 +38,7 @@
                         event.preventDefault();
                         $state.go('welcome');
                     }
-                    else if ((!creds.sessionId || !creds.userMode) && toState.name !== 'userMode') {
+                    else if (!creds.userMode && toState.name !== 'userMode') {
                         // we have a valid token and user but not a mode or session
                         event.preventDefault();
                         $state.go('userMode');

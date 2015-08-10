@@ -69,6 +69,7 @@
         var socketEvents = {
             disconnect: 'disconnect',
             message: 'message',
+            subscribe: 'subscribe',
             timerPause: 'timer.pause',
             timerStart: 'timer.start',
             timerStop: 'timer.stop'

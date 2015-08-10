@@ -1,0 +1,164 @@
+body,
+html {
+  min-height: 100%;
+  min-width: 100%;
+}
+.site-sidenav,
+.site-sidenav.md-locked-open-add-active,
+.site-sidenav.md-locked-open {
+  width: 254px;
+  min-width: 254px;
+  max-width: 254px;
+  min-height: 100%;
+}
+.site-sidenav > * {
+  min-width: 218px;
+}
+.site-wrap {
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+.fullBody {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+.site-flex-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+  min-height: 100%;
+  min-width: 100%;
+}
+#page-content-wrapper {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  overflow: auto;
+  position: relative;
+}
+.section-container {
+  height: 100%;
+  width: 100%;
+}
+#content {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.site-title {
+  margin: 0px !important;
+  font-size: 1.5em !important;
+  text-transform: none;
+}
+.toolbar-top {
+  max-Height: 50px;
+}
+/* Animations */
+.well {
+  -webkit-transition: opacity 0.4s ease-out;
+          transition: opacity 0.4s ease-out;
+}
+.well.ng-enter {
+  position: absolute;
+  opacity: 0;
+}
+.well.ng-enter.ng-enter-active {
+  opacity: 1;
+}
+.well.ng-leave {
+  position: absolute;
+  opacity: 1;
+}
+.well.ng-leave.ng-leave-active {
+  opacity: 0;
+}
+.md-pad {
+  padding: 6px;
+}
+.small-input {
+  max-width: 100px;
+  padding-bottom: 2px;
+}
+.sm-pad {
+  padding: 3px;
+}
+.sm-margin {
+  margin: 5px;
+}
+md-icon.fa {
+  display: block;
+  padding-left: 0px;
+}
+.tile-icon {
+  font-size: 2em !important;
+}
+/* Main Primary color */
+/* Main Secondary color (1) */
+.present-main {
+  background-color: #00bcd4;
+}
+.timer-card {
+  max-width: 180px;
+}
+.p-timer-card {
+  max-width: 600px;
+  min-width: 100px;
+}
+.p-timer {
+  color: #ffffff;
+  font-weight: 200;
+  font-size: 13em;
+  font-size: 10vw;
+}
+.welcome-container {
+  width: 100%;
+  height: 100%;
+}
+.loginCard {
+  max-width: 300px;
+  margin-bottom: 40px;
+}
+.user-mode-card {
+  margin: 8px;
+  font-size: 20px;
+  min-width: 170px;
+}
+.user-mode-card i {
+  width: 100%;
+  height: 100%;
+  padding-bottom: 26px;
+  padding-top: 8px;
+  text-align: center;
+  vertical-align: middle;
+  display: block;
+  padding-left: 0px;
+  color: white;
+}
+.user-mode-card .card-footer {
+  height: 36px;
+  width: 100%;
+  margin: 0px;
+  color: white;
+}
+.user-mode-card .card-footer h3 {
+  margin: 0px;
+  padding: 4px;
+  font-weight: 500;
+  width: 100%;
+  text-align: center;
+}

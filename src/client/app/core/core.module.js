@@ -5,8 +5,10 @@
         /*
          * Angular modules
          */
-        'ngAnimate',
+        'ngAnimate',  // Angular Animations
         'ngSanitize',
+        'ngMessages',  // Angular validation messages
+        'ngMaterial',  // Angular Material Design
 
         /*
          * Our reusable cross app code modules
@@ -19,7 +21,6 @@
         /*
          * 3rd Party modules
          */
-        'ngMaterial',  // Angular Material Design
         'angular-jwt', // json web token service
         'angular-storage', // Angular Storage
         'btford.socket-io', // Angular - SocketIO shim
